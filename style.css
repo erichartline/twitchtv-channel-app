@@ -1,0 +1,68 @@
+body {
+  margin-top: 25px;
+  font-family: 'Roboto Condensed', sans-serif;
+  background-color: #6441A5;
+}
+
+.container {
+  max-width: 800px;
+}
+
+img.logo {
+  width: 100px;
+}
+
+img.toplogo {
+  width: 100px;
+}
+
+h1, h2 {
+  color: white;
+  padding: 10px;
+}
+
+a:link {
+  text-decoration: none;
+  color: white;
+}
+
+.well a:link {
+  color: #006622;
+}
+
+.well a:visited {
+  color: white;
+}
+
+.well {
+  text-align: left;
+  border-radius: 1px;
+  border-color: #6441A5;
+	margin-bottom: 0px;
+  background-color: #99c2ff;
+}
+
+#online {
+  background-color: #009933;
+}
+
+#offline {
+  background-color: #b8b894;
+}
+
+#closed {
+  background-color: #ff4d4d;
+}
+
+.footer {
+  margin: 5px;
+  color: white;
+}
+
+.footer a:visited {
+  color: #000000;
+}
+
+.footer a:link {
+  color: #006622;
+}

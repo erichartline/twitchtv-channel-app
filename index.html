@@ -1,0 +1,43 @@
+<html>
+  <head>
+    <title>Twitch.TV Channel App</title>
+    <!-- Bootstrap -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="style.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container">
+      <div class="row text-center">
+        <h1><strong>Twitch.tv Channel App</strong></h1>
+        <img src="twitch-logo.png" class="img-responsive toplogo center-block">
+      </div>
+      <div class="row text-center">
+        <button class="button btn-primary btn-lg active" id="all-button">All</button>
+        <button class="button btn-primary btn-lg" id="online-button">Online</button>
+        <button class="button btn-primary btn-lg" id="offline-button">Offline</button>
+      </div>
+      <div class="row">
+        <h2>
+        <div class="col-sm-4">Logo</div>
+        <div class="col-sm-4">Display Name</div>
+        <div class="col-sm-4">Status</div>
+      </h2>
+      </div>
+      <div id="online"></div>
+      <div id="offline"></div>
+      <div id="closed"></div>
+      <footer class="text-center footer">
+        <p>Written and coded by <a href="http://www.freecodecamp.com/wildlifehexagon" target="_blank">wildlifehexagon</a> for <a href="http://www.freecodecamp.com/" target="_blank">Free Code Camp</a>.</p>
+      </footer>
+    </div>
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+  </body>
+</html>
