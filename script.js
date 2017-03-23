@@ -1,36 +1,32 @@
 $(document).ready(function() {
-  $.ajaxSetup({
-    headers : {
-      'Client-ID': 'nz681v14iycrlslsqk7qzlor6zgmg2e'
-    }
-  });
   // array of Twitch users to test
-  var users = ["ESL_SC2", "SonySanDiegoStudio", "ThatSportsGamer", "freecodecamp", "carldude", "cardinalbird5", "pSporer24", "RocketLeagueCentral", "brunofin", "Pastapadre", "RocketLeague", "OOTPDevelopments", "Clutchsilver", "manny7788gaming", "bobross"]
+  var users = ["ESL_SC2", "SonySanDiegoStudio", "ThatSportsGamer", "freecodecamp", "carldude", "cardinalbird5", "pSporer24", "RocketLeagueCentral", "brunofin", "Pastapadre", "RocketLeague", "OOTPDevelopments", "Clutchsilver", "bobross"]
   // loop to cycle through users
   for (var i = 0; i < users.length; i++) {
     // variable to use Twitch API
-    var streamURL = "https://api.twitch.tv/kraken/streams/" + users[i];
-    var channelURL = "https://api.twitch.tv/kraken/channels/" + users[i];
+    var streamURL = "https://wind-bow.gomix.me/twitch-api/streams/" + users[i] + '?callback=?';
+    var channelURL = "https://wind-bow.gomix.me/twitch-api/channels/" + users[i] + '?callback=?';
 
     $.getJSON(streamURL, function(data) {
       var logo = data.logo;
       var name = data.display_name;
       // if logo is missing, display "no logo" image
       if (logo === null || logo === undefined) {
-        logo = "http://thebosniaguy.com/site/wp-content/uploads/2013/04/no_logo.png.png";
+        logo = "not-found.jpg";
       }
       // IF/ELSE IF/ELSE statements to determine if streamers are offline, closed or currently streaming
-      if (data.stream === null) {
-        $.getJSON(channelURL, function(data2) {
-          $("#offline").append("<a href='https://www.twitch.tv/" + data2.display_name + "' target='_blank'><div class='row well' id='offline'><div class='col-sm-4'><img class='logo' src='" + data2.logo + "'></div><div class='col-sm-4'><h3>" + data2.display_name + "</h3></div><div class='col-sm-4'><h3>Offline</h3></div></div></a>");
-        });
-      } else if (data.stream === undefined) {
-        $("#closed").append("<div class='row well' id='closed'><div class='col-sm-4'><img class='logo' src='" + logo + "'></div><div class='col-sm-4'><h3>" + data.message + "</h3></div><div class='col-sm-4'><h3>Account closed</h3></div></div>");
-      } else {
+      if (data.stream !== null) {
         $("#online").append("<a href='https://www.twitch.tv/" + data.stream.channel.display_name + "' target='_blank'><div class='row well' id='online'><div class='col-sm-4'><img class='logo' src='" + data.stream.channel.logo + "'></div><div class='col-sm-4'><h3>" + data.stream.channel.display_name + "</h3><h4><em>" + data.stream.channel.status + "</em></h4></div><div class='col-sm-4'><h3>Online</h3></div></div></a>");
+      } else {
+        $.getJSON(channelURL, function(data2) {
+          if (data2.status === 404) {
+            $("#closed").append("<div class='row well' id='closed'><div class='col-sm-4'><img class='logo' src='" + logo + "'></div><div class='col-sm-4'><h3>" + data2.message + "</h3></div><div class='col-sm-4'><h3>Account closed</h3></div></div>");
+          } else {
+            $("#offline").append("<a href='https://www.twitch.tv/" + data2.display_name + "' target='_blank'><div class='row well' id='offline'><div class='col-sm-4'><img class='logo' src='" + data2.logo + "'></div><div class='col-sm-4'><h3>" + data2.display_name + "</h3></div><div class='col-sm-4'><h3>Offline</h3></div></div></a>");
+          }
+        });
       }
     });
-
   }
   // click functions for buttons
   $("#all-button").click(function() {
