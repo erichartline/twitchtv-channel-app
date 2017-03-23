@@ -4,7 +4,8 @@ $(document).ready(function() {
   // loop to cycle through users
   for (var i = 0; i < users.length; i++) {
     // variable to use Twitch API
-    var streamURL = "https://wind-bow.gomix.me/twitch-api/streams/" + users[i] + "?callback=?";
+    var streamURL = "https://api.twitch.tv/kraken/streams/" + users[i] + "?callback=?";
+    var channelURL = "https://api.twitch.tv/kraken/channels/" + users[i] + "?callback=?";
 
     $.getJSON(streamURL, function(data) {
       var logo = data.logo;
@@ -15,7 +16,7 @@ $(document).ready(function() {
       }
       // IF/ELSE IF/ELSE statements to determine if streamers are offline, closed or currently streaming
       if (data.stream === null) {
-        $.getJSON(data._links.channel, function(data2) {
+        $.getJSON(channelURL, function(data2) {
           $("#offline").append("<a href='https://www.twitch.tv/" + data2.display_name + "' target='_blank'><div class='row well' id='offline'><div class='col-sm-4'><img class='logo' src='" + data2.logo + "'></div><div class='col-sm-4'><h3>" + data2.display_name + "</h3></div><div class='col-sm-4'><h3>Offline</h3></div></div></a>");
         });
       } else if (data.stream === undefined) {
