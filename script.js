@@ -4,8 +4,8 @@ $(document).ready(function() {
   // loop to cycle through users
   for (var i = 0; i < users.length; i++) {
     // variable to use Twitch API
-    var streamURL = "https://wind-bow.gomix.me/twitch-api/streams/" + users[i];
-    var channelURL = "https://wind-bow.gomix.me/twitch-api/channels/" + users[i];
+    var streamURL = "https://api.twitch.tv/kraken/streams/" + users[i];
+    var channelURL = "https://api.twitch.tv/kraken/channels/" + users[i];
 
     $.getJSON(streamURL, function(data) {
       var logo = data.logo;
