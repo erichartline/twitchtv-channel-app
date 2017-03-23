@@ -1,4 +1,9 @@
 $(document).ready(function() {
+  $.ajaxSetup({
+    headers : {
+      'Client-ID': 'nz681v14iycrlslsqk7qzlor6zgmg2e'
+    }
+  });
   // array of Twitch users to test
   var users = ["ESL_SC2", "SonySanDiegoStudio", "ThatSportsGamer", "freecodecamp", "carldude", "cardinalbird5", "pSporer24", "RocketLeagueCentral", "brunofin", "Pastapadre", "RocketLeague", "OOTPDevelopments", "Clutchsilver", "manny7788gaming", "bobross"]
   // loop to cycle through users
