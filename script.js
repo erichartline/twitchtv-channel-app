@@ -1,11 +1,11 @@
 $(document).ready(function() {
   // array of Twitch users to test
   var users = ["ESL_SC2", "SonySanDiegoStudio", "ThatSportsGamer", "freecodecamp", "carldude", "cardinalbird5", "pSporer24", "RocketLeagueCentral", "brunofin", "Pastapadre", "RocketLeague", "OOTPDevelopments", "Clutchsilver", "bobross"]
-  // loop to cycle through users
-  for (var i = 0; i < users.length; i++) {
-    // variable to use Twitch API
-    var streamURL = "https://wind-bow.gomix.me/twitch-api/streams/" + users[i] + '?callback=?';
-    var channelURL = "https://wind-bow.gomix.me/twitch-api/channels/" + users[i] + '?callback=?';
+  // loop through users
+  users.forEach(function(user) {
+    // variables to use Twitch API
+    var streamURL = "https://wind-bow.gomix.me/twitch-api/streams/" + user + '?callback=?';
+    var channelURL = "https://wind-bow.gomix.me/twitch-api/channels/" + user + '?callback=?';
 
     $.getJSON(streamURL, function(data) {
       var logo = data.logo;
@@ -27,7 +27,8 @@ $(document).ready(function() {
         });
       }
     });
-  }
+  });
+
   // click functions for buttons
   $("#all-button").click(function() {
     $("#online").show(1000)

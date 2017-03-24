@@ -8,3 +8,5 @@ Features:
 
 Future ideas:
 * Include embedded videos
+
+[Live Demo](https://wildlifehexagon.github.io/twitchtv-channel-app/)
