@@ -1,12 +1,17 @@
 # Twitch.tv Channel App
-An app to see which Twitch users are online, offline or no longer available. Uses the Twitch API.
+A web app to see which Twitch users are online, offline or no longer available.
 
-Built With: JavaScript, jQuery, CSS3, HTML5, Bootstrap
+Live Demo: [https://wildlifehexagon.github.io/twitchtv-channel-app/](https://wildlifehexagon.github.io/twitchtv-channel-app/)
+
+Built with HTML, CSS, Bootstrap, JavaScript, jQuery and the Twitch API.
 
 Features:
-* Lets you sort a pre-determined list of Twitch users by their current streaming status
+* Lets you sort a pre-determined list of Twitch users (mostly Rocket League and MLB The Show channels) by their current streaming status
+* Automatically lists currently streaming channels first
+* Displays channel logo, name and what they are currently streaming (if active)
+* Provides error message if channel not found
 
 Future ideas:
 * Include embedded videos
 
-[Live Demo](https://wildlifehexagon.github.io/twitchtv-channel-app/)
+Original freeCodeCamp challenge: [https://www.freecodecamp.com/challenges/use-the-twitchtv-json-api](https://www.freecodecamp.com/challenges/use-the-twitchtv-json-api)
